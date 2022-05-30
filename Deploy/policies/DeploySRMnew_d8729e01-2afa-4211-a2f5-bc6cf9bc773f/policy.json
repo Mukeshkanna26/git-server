@@ -1,0 +1,38 @@
+{
+ "properties": {
+  "displayName": "DeploySRMnew",
+  "policyType": "Custom",
+  "mode": "All",
+  "metadata": {
+   "category": "Allowed locations",
+   "createdBy": "8e1fa576-e383-4404-abcc-d7399e6a6f9e",
+   "createdOn": "2022-05-30T09:32:23.1681325Z",
+   "updatedBy": null,
+   "updatedOn": null
+  },
+  "parameters": {
+   "allowedLocations": {
+    "type": "Array",
+    "metadata": {
+     "displayName": "Allowed locations",
+     "description": "The list of allowed locations for resources.",
+     "strongType": "location"
+    }
+   }
+  },
+  "policyRule": {
+   "if": {
+    "not": {
+     "field": "location",
+     "in": "[parameters('allowedLocations')]"
+    }
+   },
+   "then": {
+    "effect": "audit"
+   }
+  }
+ },
+ "id": "/subscriptions/8101c69c-4b85-4eb8-97ee-655d5aea0279/providers/Microsoft.Authorization/policyDefinitions/d8729e01-2afa-4211-a2f5-bc6cf9bc773f",
+ "type": "Microsoft.Authorization/policyDefinitions",
+ "name": "d8729e01-2afa-4211-a2f5-bc6cf9bc773f"
+}
